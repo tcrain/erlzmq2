@@ -25,8 +25,9 @@ distclean:
 
 $(DEPS)/zeromq3:
 	@mkdir -p $(DEPS)
-	@curl http://download.zeromq.org/zeromq-$(ZEROMQ_VERSION).tar.gz -o $(DEPS)/zeromq-$(ZEROMQ_VERSION).tar.gz
+	@curl http://pkgs.fedoraproject.org/repo/pkgs/zeromq3/zeromq-3.2.2.tar.gz/df68431d9300da84a1a5f9a2784e33de/zeromq-3.2.2.tar.gz -o $(DEPS)/zeromq-$(ZEROMQ_VERSION).tar.gz
 	@cd $(DEPS) && tar xzvfp zeromq-$(ZEROMQ_VERSION).tar.gz && mv zeromq-$(ZEROMQ_VERSION) zeromq3
+
 
 $(DEPS)/zeromq3/src/.libs/libzmq.a: $(DEPS)/zeromq3
 	@cd $(DEPS)/zeromq3 && ./configure $(ZMQ_FLAGS) && make
